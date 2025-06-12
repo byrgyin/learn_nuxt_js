@@ -1,9 +1,17 @@
 <script setup lang="ts">
-const some:string = 'info';
+const options = {
+  method: 'POST',
+  body: JSON.stringify({
+    name: 'dev' as string,
+    id:1 as number,
+  })
+}
+
+const {data} = await useFetch('/api/example',options)
 </script>
 <template>
   <h1>Home Page</h1>
-  <p>{{some}}</p>
+  <Alert color="primary">{{data.mess}}</Alert>
 </template>
 
 <style scoped lang="css">
